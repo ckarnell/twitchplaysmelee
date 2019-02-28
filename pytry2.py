@@ -1,25 +1,33 @@
-#! /usr/bin/env python
-#
-# Example program using client.
-#
-# This program is free without restrictions; do anything you like with
-# it.
-#
-# Joel Rosdahl <joel@rosdahl.net>
-
 import sys
 import argparse
 import itertools
 
 from irc import client, ctcp
 import jaraco.logging
-import pyautogui
+import time
 
+
+KEY_MAPPINGS = {
+    'left': ['SET MAIN 0 .5', 'SET MAIN .5 .5'],
+    'right': ['SET MAIN 1 .5', 'SET MAIN .5 .5'],
+    'up': ['SET MAIN .5 1', 'SET MAIN .5 .5'],
+    'down': ['SET MAIN .5 0', 'SET MAIN .5 .5'],
+    'special': ['PRESS B', 'RELEASE B'],
+    'attack': ['PRESS A', 'RELEASE A'],
+    'shield': ['PRESS L', 'RELEASE L'],
+    'grab': ['PRESS Z', 'RELEASE Z'],
+    'c-up': ['SET C .5 1', 'SET C .5 .5'],
+    'c-down': ['SET C .5 0', 'SET C .5 .5'],
+    'c-left': ['SET C 0 .5', 'SET C .5 .5'],
+    'c-right': ['SET C 1 .5', 'SET C .5 .5'],
+    'taunt': ['PRESS D_UP', 'RELEASE D_UP'],
+}
 # TODO: make it more _dirty_
 # from xdo import Xdo
 target = None
 "The nick or channel to which to send messages"
 
+DELAY=0.1
 
 def on_connect(connection, event):
     if client.is_channel(target):
@@ -52,8 +60,16 @@ def on_disconnect(connection, event):
 def handle_message(arguments, command, source, tags):
     target, msg = arguments[:2]
     messages = ctcp.dequote(msg)
-    # pyautogui.press('a')
-    pyautogui.typewrite('a')
+
+    for message in messages:
+        potential_actions = KEY_MAPPINGS.get(message.strip())
+        if potential_actions:
+            with open('/Users/ericborczuk/Library/Application Support/Dolphin/Pipes/pipe1', 'w') as pipe:
+                for action in potential_actions:
+                    print(action)
+                    pipe.write(action)
+                    time.sleep(DELAY)
+
     message_string = '\n'.join(messages)
     print(f'{target}: {message_string}')
 
@@ -61,13 +77,7 @@ def handle_message(arguments, command, source, tags):
 def main():
     global target
 
-    # xdo = Xdo()
-    # win_id = xdo.select_window_with_click()
-    # print(win_id)
-    # xdo.enter_text_window(win_id, 'Python rocks!')
-
     reactor = client.Reactor()
-    # reactor._handle_message = _handle_message
     try:
         c = reactor.server().connect(
             'irc.twitch.tv',
@@ -82,7 +92,6 @@ def main():
     c.join('#trialsparkplays')
 
     c.privmsg('#trialsparkplays', 'Commands: <TODO: write something>')
-    # print(type(c))
     c.process_data()
     reactor.process_forever()
 
