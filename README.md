@@ -1,7 +1,7 @@
 # twitchplaysmelee
 This repo was created for the 2019 TrialSpark winter hackathon.
 
-#How to run
+# How to run
 
 Requirements:
 The Dolphin emulator.
