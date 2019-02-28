@@ -1,6 +1,7 @@
 import sys
 import argparse
 import itertools
+import subprocess
 
 from irc import client, ctcp
 import jaraco.logging
@@ -8,26 +9,28 @@ import time
 
 
 KEY_MAPPINGS = {
-    'left': ['SET MAIN 0 .5', 'SET MAIN .5 .5'],
-    'right': ['SET MAIN 1 .5', 'SET MAIN .5 .5'],
-    'up': ['SET MAIN .5 1', 'SET MAIN .5 .5'],
-    'down': ['SET MAIN .5 0', 'SET MAIN .5 .5'],
+    'left': ['SET MAIN 0 0.5', 'SET MAIN 0.5 0.5'],
+    'right': ['SET MAIN 1 0.5', 'SET MAIN 0.5 0.5'],
+    'up': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'down': ['SET MAIN 0.5 1', 'SET MAIN 0.5 0.5'],
     'special': ['PRESS B', 'RELEASE B'],
     'attack': ['PRESS A', 'RELEASE A'],
     'shield': ['PRESS L', 'RELEASE L'],
     'grab': ['PRESS Z', 'RELEASE Z'],
-    'c-up': ['SET C .5 1', 'SET C .5 .5'],
-    'c-down': ['SET C .5 0', 'SET C .5 .5'],
-    'c-left': ['SET C 0 .5', 'SET C .5 .5'],
-    'c-right': ['SET C 1 .5', 'SET C .5 .5'],
+    'c-up': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'c-down': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'c-left': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'c-right': ['SET C 1 0.5', 'SET C 0.5 0.5'],
     'taunt': ['PRESS D_UP', 'RELEASE D_UP'],
+    'start': ['PRESS START', 'RELEASE START'],
+    'jump': ['PRESS X', 'RELEASE X']
 }
 # TODO: make it more _dirty_
 # from xdo import Xdo
 target = None
 "The nick or channel to which to send messages"
 
-DELAY=0.1
+DELAY=0.3
 
 def on_connect(connection, event):
     if client.is_channel(target):
@@ -64,11 +67,11 @@ def handle_message(arguments, command, source, tags):
     for message in messages:
         potential_actions = KEY_MAPPINGS.get(message.strip())
         if potential_actions:
-            with open('/Users/ericborczuk/Library/Application Support/Dolphin/Pipes/pipe1', 'w') as pipe:
-                for action in potential_actions:
-                    print(action)
-                    pipe.write(action)
-                    time.sleep(DELAY)
+            for action in potential_actions:
+                # print(action)
+                filename = '~/Library/Application\\ Support/Dolphin/Pipes/pipe1'
+                subprocess.Popen(f'echo "{action}" > {filename}', shell=True)
+                time.sleep(DELAY)
 
     message_string = '\n'.join(messages)
     print(f'{target}: {message_string}')
