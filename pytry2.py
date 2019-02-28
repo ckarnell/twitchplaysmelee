@@ -172,6 +172,24 @@ KEY_MAPPINGS_TUPLE = [
     ('p1', ['p1']),
     ('p2', ['p2']),
 
+    # Advanced Tech
+    ('wdr', [
+        'SET MAIN 1 1',
+        'PRESS X',
+        'RELEASE X',
+        'PRESS R',
+        'RELEASE R',
+        'SET MAIN 0.5 0.5',
+    ]),
+    ('wdl', [
+        'SET MAIN 0 1',
+        'PRESS X',
+        'RELEASE X',
+        'PRESS R',
+        'RELEASE R',
+        'SET MAIN 0.5 0.5',
+    ]),
+
     # misc
     ('toggle-color', ['PRESS X', 'RELEASE X']),
     ('help', ['help']),
@@ -196,6 +214,32 @@ KEY_MAPPINGS_TUPLE = [
         'RELEASE R',
         'RELEASE A',
         'RELEASE START',
+    ]),
+    ('mod-jig', [
+        'SET MAIN 0.5 0.4',
+        'PRESS A',
+        'RELEASE A',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'PRESS X',
+        'RELEASE X',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.7',
+        'PRESS B',
+        'RELEASE B',
+        'SET MAIN 0.5 0.5'
     ]),
 ]
 
@@ -240,7 +284,7 @@ def on_disconnect(connection, event):
 P1_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe1'
 P2_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe2'
 
-MODS = ['jigaleepoof', 'twitchplays']
+MODS = ['jigaleepoof', 'twitchplays', 'mrjaeger00']
 
 
 class TwitchPlays:
