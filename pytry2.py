@@ -309,7 +309,10 @@ def main():
     c.join('#trialsparkplays')
 
     print('Connected!')
-    c.privmsg('#trialsparkplays', 'Commands: <TODO: write something>')
+    c.privmsg(
+        '#trialsparkplays',
+        'You control the characters! View available commands here: https://gist.github.com/ckarnell/38d7db3ef9a71da521bfd9fb73ca547e'
+    )
     c.process_data()
     reactor.process_forever()
 
