@@ -2,7 +2,7 @@ import itertools
 import random
 import time
 
-NUM_SPACES = 80
+NUM_SPACES = 20
 spacing = ' ' * NUM_SPACES
 
 

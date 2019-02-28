@@ -251,9 +251,8 @@ def get_lines():
 
 
 def main_loop(connection):
-    # print(connection)
     for line in itertools.takewhile(bool, get_lines()):
-        print(line)
+        # print(line)
         connection.privmsg(target, line)
     connection.quit("Using client.py")
 
@@ -290,8 +289,6 @@ class TwitchPlays:
     def handle_message(self, arguments, command, source, tags):
         target, msg = arguments[:2]
         messages = ctcp.dequote(msg)
-        # print(source)
-        # print(tags)
         user_name = source.split('!')[0]
         if user_name not in self.user_to_pipe:
             # Give the user mod privileges so they can input the same command
@@ -314,7 +311,7 @@ class TwitchPlays:
                         self.user_to_pipe[user_name] = P2_FILENAME
                         self.write_file()
                     else:
-                        print(action)
+                        # print(action)
                         subprocess.Popen(
                             f'echo "{action}" > {self.user_to_pipe[user_name]}',
                             shell=True)
