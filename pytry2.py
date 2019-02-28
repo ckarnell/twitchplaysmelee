@@ -95,12 +95,20 @@ KEY_MAPPINGS = {
     'cd': ['SET C 0.5 1', 'SET C 0.5 0.5'],
     'cdown': ['SET C 0.5 1', 'SET C 0.5 0.5'],
     'downc': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'down-smash': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'downsmash': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'smash-down': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'smashdown': ['SET C 0.5 1', 'SET C 0.5 0.5'],
 
     # C right
     'rc': ['SET C 1 0.5', 'SET C 0.5 0.5'],
     'cr': ['SET C 1 0.5', 'SET C 0.5 0.5'],
     'cright': ['SET C 1 0.5', 'SET C 0.5 0.5'],
     'rightc': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'smash-right': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'smashright': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'right-smash': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'right-smash': ['SET C 1 0.5', 'SET C 0.5 0.5'],
 
     # Taunt
     'taunt': ['PRESS D_UP', 'RELEASE D_UP'],
