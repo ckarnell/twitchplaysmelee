@@ -7,30 +7,156 @@ from irc import client, ctcp
 import jaraco.logging
 import time
 
-
 KEY_MAPPINGS = {
+    # Left
     'left': ['SET MAIN 0 0.5', 'SET MAIN 0.5 0.5'],
+    'l': ['SET MAIN 0 0.5', 'SET MAIN 0.5 0.5'],
+
+    # Right
     'right': ['SET MAIN 1 0.5', 'SET MAIN 0.5 0.5'],
+    'r': ['SET MAIN 1 0.5', 'SET MAIN 0.5 0.5'],
+
+    # Up
     'up': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'u': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+
+    # Down
     'down': ['SET MAIN 0.5 1', 'SET MAIN 0.5 0.5'],
-    'special': ['PRESS B', 'RELEASE B'],
-    'attack': ['PRESS A', 'RELEASE A'],
-    'shield': ['PRESS L', 'RELEASE L'],
+    'd': ['SET MAIN 0.5 1', 'SET MAIN 0.5 0.5'],
+
+    # B
+    'b': ['PRESS B', 'RELEASE B'],
+
+    # B right
+    'rb': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'br': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'right-b': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'b-right': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bright': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'rightb': ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+
+    # B left
+    'lb': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bl': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'b-left': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'left-b': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bleft': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'leftb': ['SET MAIN 0 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+
+    # B up
+    'ub': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bu': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'up-b': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'b-up': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'upb': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bup': ['SET MAIN 0.5 0', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+
+    # B down
+    'db': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bd': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'b-down': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'down-b': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'bdown': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+    'downb': ['SET MAIN 0.5 1', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'],
+
+    # A
+    'a': ['PRESS A', 'RELEASE A'],
+
+    # Grab
     'grab': ['PRESS Z', 'RELEASE Z'],
-    'c-up': ['SET C 0.5 0', 'SET C 0.5 0.5'],
-    'c-down': ['SET C 0.5 1', 'SET C 0.5 0.5'],
-    'c-left': ['SET C 0 0.5', 'SET C 0.5 0.5'],
-    'c-right': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'z': ['PRESS Z', 'RELEASE Z'],
+
+    # Sheild
+    's': ['PRESS L', 'RELEASE L'],
+    'sheild': ['PRESS L', 'RELEASE L'],
+
+    # C up
+    'uc': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'cu': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'cup': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'upc': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'up-smash': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'smash-up': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'upsmash': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+    'smashup': ['SET C 0.5 0', 'SET C 0.5 0.5'],
+
+    # C left
+    'lc': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'cl': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'cleft': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'leftc': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'left-smash': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'leftsmash': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'smash-left': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+    'smashleft': ['SET C 0 0.5', 'SET C 0.5 0.5'],
+
+    # C down
+    'dc': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'cd': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'cdown': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+    'downc': ['SET C 0.5 1', 'SET C 0.5 0.5'],
+
+    # C right
+    'rc': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'cr': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'cright': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+    'rightc': ['SET C 1 0.5', 'SET C 0.5 0.5'],
+
+    # Taunt
     'taunt': ['PRESS D_UP', 'RELEASE D_UP'],
+
+    # Start
     'start': ['PRESS START', 'RELEASE START'],
-    'jump': ['PRESS X', 'RELEASE X']
+
+    # Jump
+    'jump': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'j': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+
+    # Short hop
+    'short-hop': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'shorthop': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'short-jump': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'shortjump': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'sh': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    'sj': ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+
+    # Change player
+    'p1': ['p1'],
+    'p2': ['p2'],
+
+    # misc
+    'toggle-color': ['PRESS X', 'RELEASE X'],
+
+    # privileged
+    'mod-end-game': [
+        'PRESS L',
+        'PRESS R',
+        'PRESS A',
+        'PRESS START',
+        'RELEASE L',
+        'RELEASE R',
+        'RELEASE A',
+        'RELEASE START',
+    ],
+    'mod-end': [
+        'PRESS L',
+        'PRESS R',
+        'PRESS A',
+        'PRESS START',
+        'RELEASE L',
+        'RELEASE R',
+        'RELEASE A',
+        'RELEASE START',
+    ],
 }
 # TODO: make it more _dirty_
 # from xdo import Xdo
 target = None
 "The nick or channel to which to send messages"
 
-DELAY=0.3
+# 2 frames
+DELAY = 1.0 / 30
+
 
 def on_connect(connection, event):
     if client.is_channel(target):
@@ -60,21 +186,49 @@ def on_disconnect(connection, event):
     raise SystemExit()
 
 
-def handle_message(arguments, command, source, tags):
-    target, msg = arguments[:2]
-    messages = ctcp.dequote(msg)
+P1_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe1'
+P2_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe2'
 
-    for message in messages:
-        potential_actions = KEY_MAPPINGS.get(message.strip())
-        if potential_actions:
-            for action in potential_actions:
-                # print(action)
-                filename = '~/Library/Application\\ Support/Dolphin/Pipes/pipe1'
-                subprocess.Popen(f'echo "{action}" > {filename}', shell=True)
-                time.sleep(DELAY)
+MODS = ['jigaleepoof', 'twitchplays']
 
-    message_string = '\n'.join(messages)
-    print(f'{target}: {message_string}')
+
+class TwitchPlays:
+    def __init__(self, connection):
+        self.user_to_pipe = {}
+        self.connection = connection
+
+    def handle_message(self, arguments, command, source, tags):
+        target, msg = arguments[:2]
+        messages = ctcp.dequote(msg)
+        # print(source)
+        # print(tags)
+        user_name = source.split('!')[0]
+        if user_name not in self.user_to_pipe:
+            # Give the user mod privileges so they can input the same command
+            # multiple times quickly
+            self.connection.privmsg('#trialsparkplays', f'/mod {user_name}')
+            print('Registering {user_name}')
+            self.user_to_pipe[user_name] = P1_FILENAME
+
+        for message in messages:
+            if message.startswith('mod') and user_name not in MODS:
+                return
+            potential_actions = KEY_MAPPINGS.get(message.strip())
+            if potential_actions:
+                for action in potential_actions:
+                    if action == 'p1':
+                        self.user_to_pipe[user_name] = P1_FILENAME
+                    elif action == 'p2':
+                        self.user_to_pipe[user_name] = P2_FILENAME
+                    else:
+                        print(action)
+                        subprocess.Popen(
+                            f'echo "{action}" > {self.user_to_pipe[user_name]}',
+                            shell=True)
+                        time.sleep(DELAY)
+
+        message_string = '\n'.join(messages)
+        print(f'{user_name}: {message_string}')
 
 
 def main():
@@ -91,14 +245,14 @@ def main():
         print(sys.exc_info()[1])
         raise SystemExit(1)
 
-    setattr(c, '_handle_message', handle_message)
+    twitch_plays = TwitchPlays(connection=c)
+    setattr(c, '_handle_message', twitch_plays.handle_message)
     c.join('#trialsparkplays')
 
+    print('Connected!')
     c.privmsg('#trialsparkplays', 'Commands: <TODO: write something>')
     c.process_data()
     reactor.process_forever()
-
-
 
 
 if __name__ == '__main__':
