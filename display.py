@@ -5,6 +5,7 @@ import time
 NUM_SPACES = 80
 spacing = ' ' * NUM_SPACES
 
+
 def main():
     while True:
         print('\033[2J')
@@ -28,12 +29,12 @@ def main():
             else:
                 player_one_usernames.append(line)
 
-        
-        combos = itertools.zip_longest(player_one_usernames, player_two_usernames, fillvalue='')
+        combos = itertools.zip_longest(
+            player_one_usernames, player_two_usernames, fillvalue='')
         for combo in combos:
             spaces_needed = ' ' * (NUM_SPACES - len(combo[0]) + 2)
             print(f'{combo[0]}{spaces_needed}{combo[1]}')
-            
+
         time.sleep(1)
 
         info_file.close()

@@ -30,8 +30,10 @@ KEY_MAPPINGS_TUPLE = [
     # B right
     ('rb', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
     ('br', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
-    ('right-b', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
-    ('b-right', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
+    ('right-b', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B',
+                 'SET MAIN 0.5 0.5']),
+    ('b-right', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B',
+                 'SET MAIN 0.5 0.5']),
     ('bright', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
     ('rightb', ['SET MAIN 1 0.5', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5']),
 
@@ -75,40 +77,62 @@ KEY_MAPPINGS_TUPLE = [
     ('tu', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tup', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('upt', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('up-tilt', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('tilt-up', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('uptilt', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('tiltup', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('up-tilt',
+     ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tilt-up',
+     ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('uptilt',
+     ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tiltup',
+     ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
 
     # Tilt left
     ('lt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tl', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('tleft', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('leftt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('left-tilt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('tilt-left', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('lefttilt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
-    ('tiltleft', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tleft', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
+    ('leftt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
+    ('left-tilt',
+     ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tilt-left',
+     ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('lefttilt',
+     ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tiltleft',
+     ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
 
     # Tilt down
     ('dt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
     ('td', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('tdown', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('downt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('down-tilt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('tilt-down', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('downtilt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('tiltdown', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+    ('tdown', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.6']),
+    ('downt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.6']),
+    ('down-tilt',
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+    ('tilt-down',
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+    ('downtilt',
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+    ('tiltdown',
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
 
     # Tilt right
     ('rt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
     ('tr', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('tright', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('rightt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('right-tilt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('tilt-right', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('righttilt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('tiltright', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('tright',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('rightt',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('right-tilt',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('tilt-right',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('righttilt',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('tiltright',
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
 
     # C up
     ('uc', ['SET C 0.5 0', 'SET C 0.5 0.5']),
@@ -158,7 +182,10 @@ KEY_MAPPINGS_TUPLE = [
 
     # Jump
     ('jump', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
-    ('j', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],),
+    (
+        'j',
+        ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    ),
 
     # Short hop
     ('short-hop', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
@@ -200,8 +227,6 @@ KEY_MAPPINGS_TUPLE = [
 ]
 
 KEY_MAPPINGS = {}
-# TODO: make it more _dirty_
-# from xdo import Xdo
 target = None
 "The nick or channel to which to send messages"
 
@@ -248,6 +273,20 @@ class TwitchPlays:
         self.user_to_pipe = {}
         self.connection = connection
 
+    def write_file(self):
+        with open('info.txt', 'w') as raw:
+            # Delete the contents
+            raw.seek(0)
+            raw.truncate()
+            # Write the characters
+            sorted_p1 = sorted(user_name for user_name in self.user_to_pipe
+                               if self.user_to_pipe[user_name] == P1_FILENAME)
+            sorted_p2 = sorted(user_name for user_name in self.user_to_pipe
+                               if self.user_to_pipe[user_name] == P2_FILENAME)
+            new_contents = '\n'.join(sorted_p1) + '\nP2\n' + '\n'.join(
+                sorted_p2)
+            raw.write(new_contents)
+
     def handle_message(self, arguments, command, source, tags):
         target, msg = arguments[:2]
         messages = ctcp.dequote(msg)
@@ -260,6 +299,7 @@ class TwitchPlays:
             self.connection.privmsg('#trialsparkplays', f'/mod {user_name}')
             print(f'Registering {user_name}')
             self.user_to_pipe[user_name] = P1_FILENAME
+            self.write_file()
 
         for message in messages:
             if message.startswith('mod') and user_name not in MODS:
@@ -269,8 +309,10 @@ class TwitchPlays:
                 for action in potential_actions:
                     if action == 'p1':
                         self.user_to_pipe[user_name] = P1_FILENAME
+                        self.write_file()
                     elif action == 'p2':
                         self.user_to_pipe[user_name] = P2_FILENAME
+                        self.write_file()
                     else:
                         print(action)
                         subprocess.Popen(
@@ -291,7 +333,9 @@ def main():
     if len(KEY_MAPPINGS_TUPLE) != len(KEY_MAPPINGS.keys()):
         keys = [tup[0] for tup in KEY_MAPPINGS_TUPLE]
         dupes = set([x for x in keys if keys.count(x) > 1])
-        raise ValueError(f'There are duplicate keys in the key mappings tuple. They are: {dupes}')
+        raise ValueError(
+            f'There are duplicate keys in the key mappings tuple. They are: {dupes}'
+        )
 
     reactor = client.Reactor()
     try:
