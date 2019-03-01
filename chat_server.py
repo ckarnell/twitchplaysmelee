@@ -110,9 +110,9 @@ KEY_MAPPINGS_TUPLE = [
     ('dt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('td', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tdown', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
-               'SET MAIN 0.5 0.6']),
+               'SET MAIN 0.5 0.5']),
     ('downt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
-               'SET MAIN 0.5 0.6']),
+               'SET MAIN 0.5 0.5']),
     ('down-tilt',
      ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tilt-down',
@@ -125,8 +125,8 @@ KEY_MAPPINGS_TUPLE = [
                'SET MAIN 0.5 0.5']),
 
     # Tilt right
-    ('rt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
-    ('tr', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+    ('rt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('tr', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tright',
      ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('rightt',
