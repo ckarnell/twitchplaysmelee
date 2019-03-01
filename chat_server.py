@@ -8,6 +8,10 @@ import jaraco.logging
 import time
 
 KEY_MAPPINGS_TUPLE = [
+    # Up
+    ('up', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
+    ('u', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
+
     # Left
     ('left', ['SET MAIN 0 0.5', 'SET MAIN 0.5 0.5']),
     ('l', ['SET MAIN 0 0.5', 'SET MAIN 0.5 0.5']),
@@ -15,10 +19,6 @@ KEY_MAPPINGS_TUPLE = [
     # Right
     ('right', ['SET MAIN 1 0.5', 'SET MAIN 0.5 0.5']),
     ('r', ['SET MAIN 1 0.5', 'SET MAIN 0.5 0.5']),
-
-    # Up
-    ('up', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
-    ('u', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
 
     # Down
     ('down', ['SET MAIN 0.5 1', 'SET MAIN 0.5 0.5']),
@@ -85,6 +85,8 @@ KEY_MAPPINGS_TUPLE = [
      ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tiltup',
      ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('utilt', ['SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
 
     # Tilt left
     ('lt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
@@ -101,38 +103,44 @@ KEY_MAPPINGS_TUPLE = [
      ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tiltleft',
      ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('ltilt', ['SET MAIN 0.4 0.5', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
 
     # Tilt down
-    ('dt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
-    ('td', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+    ('dt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('td', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tdown', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
                'SET MAIN 0.5 0.6']),
     ('downt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
                'SET MAIN 0.5 0.6']),
     ('down-tilt',
-     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tilt-down',
-     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('downtilt',
-     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tiltdown',
-     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.6']),
+     ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('dtilt', ['SET MAIN 0.5 0.6', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
 
     # Tilt right
     ('rt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
     ('tr', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
     ('tright',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('rightt',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('right-tilt',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tilt-right',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('righttilt',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
     ('tiltright',
-     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.6 0.5']),
+     ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5']),
+    ('rtilt', ['SET MAIN 0.6 0.5', 'PRESS A', 'RELEASE A',
+               'SET MAIN 0.5 0.5']),
 
     # C up
     ('uc', ['SET C 0.5 0', 'SET C 0.5 0.5']),
@@ -186,6 +194,14 @@ KEY_MAPPINGS_TUPLE = [
         'j',
         ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
     ),
+    (
+        'x',
+        ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    ),
+    (
+        'y',
+        ['SET MAIN 0.5 0', 'SET MAIN 0.5 0', 'SET MAIN 0.5 0.5'],
+    ),
 
     # Short hop
     ('short-hop', ['SET MAIN 0.5 0', 'SET MAIN 0.5 0.5']),
@@ -221,7 +237,9 @@ KEY_MAPPINGS_TUPLE = [
     ('toggle-color', ['PRESS X', 'RELEASE X']),
     ('help', ['help']),
 
-    # privileged
+    # PRIVILEGED
+
+    # If the game is paused, this will end the game
     ('mod-end-game', [
         'PRESS L',
         'PRESS R',
@@ -242,37 +260,22 @@ KEY_MAPPINGS_TUPLE = [
         'RELEASE A',
         'RELEASE START',
     ]),
+    ('mod-toggle-squelch', ['mod-toggle-squelch']),
+
+    # Eric's jig combo
     ('mod-jig', [
-        'SET MAIN 0.5 0.4',
-        'PRESS A',
-        'RELEASE A',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'PRESS X',
-        'RELEASE X',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.5',
-        'SET MAIN 0.5 0.7',
-        'PRESS B',
-        'RELEASE B',
-        'SET MAIN 0.5 0.5'
+        'SET MAIN 0.5 0.4', 'PRESS A', 'RELEASE A', 'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5', 'PRESS X', 'RELEASE X',
+        'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5', 'SET MAIN 0.5 0.5',
+        'SET MAIN 0.5 0.7', 'PRESS B', 'RELEASE B', 'SET MAIN 0.5 0.5'
     ]),
 ]
 
 KEY_MAPPINGS = {}
 target = None
-"The nick or channel to which to send messages"
 
 # 2 frames
 DELAY = 1.0 / 30
@@ -308,13 +311,14 @@ def on_disconnect(connection, event):
 P1_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe1'
 P2_FILENAME = '~/Library/Application\\ Support/Dolphin/Pipes/pipe2'
 
-MODS = ['jigaleepoof', 'twitchplays', 'mrjaeger00']
+MODS = ['jigaleepoof', 'trialsparkplays']  #, 'mrjaeger00']
 
 
 class TwitchPlays:
     def __init__(self, connection):
         self.user_to_pipe = {}
         self.connection = connection
+        self.squelched = False
 
     def write_file(self):
         with open('info.txt', 'w') as raw:
@@ -330,6 +334,9 @@ class TwitchPlays:
                 sorted_p2)
             raw.write(new_contents)
 
+    def toggle_squelched(self):
+        self.squelched = not self.squelched
+
     def handle_message(self, arguments, command, source, tags):
         target, msg = arguments[:2]
         messages = ctcp.dequote(msg)
@@ -339,11 +346,18 @@ class TwitchPlays:
             # multiple times quickly
             self.connection.privmsg('#trialsparkplays', f'/mod {user_name}')
             print(f'Registering {user_name}')
+            self.connection.privmsg(
+                '#trialsparkplays',
+                f'Hi {user_name}! You control the characters! View available commands here: https://gist.github.com/ckarnell/38d7db3ef9a71da521bfd9fb73ca547e'
+            )
             self.user_to_pipe[user_name] = P1_FILENAME
             self.write_file()
 
         for message in messages:
-            if message.startswith('mod') and user_name not in MODS:
+            # Don't allow actions while squelched unless you're a mod
+            # Don't allow mod actions unless you're a mod
+            if (self.squelched
+                    or message.startswith('mod')) and user_name not in MODS:
                 return
             potential_actions = KEY_MAPPINGS.get(message.strip())
             if potential_actions:
@@ -354,6 +368,9 @@ class TwitchPlays:
                     elif action == 'p2':
                         self.user_to_pipe[user_name] = P2_FILENAME
                         self.write_file()
+                    elif action == 'mod-toggle-squelch' and user_name in MODS:
+                        self.toggle_squelched()
+                        return
                     else:
                         # print(action)
                         subprocess.Popen(
@@ -366,7 +383,7 @@ class TwitchPlays:
 
 
 def main():
-    global target
+    # global target
     global KEY_MAPPINGS_TUPLE
     global KEY_MAPPINGS
 
@@ -393,11 +410,7 @@ def main():
     setattr(c, '_handle_message', twitch_plays.handle_message)
     c.join('#trialsparkplays')
 
-    print('Connected!')
-    c.privmsg(
-        '#trialsparkplays',
-        'You control the characters! View available commands here: https://gist.github.com/ckarnell/38d7db3ef9a71da521bfd9fb73ca547e'
-    )
+    c.privmsg('#trialsparkplays', 'Connected!')
     c.process_data()
     reactor.process_forever()
 
